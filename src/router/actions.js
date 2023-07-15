@@ -10,7 +10,7 @@ export const signupAction = async ({request}) => {
         password: formData.get("password")
     }
 
-    await fetch(url + "/auth/signup" , {
+    const response = await fetch(url + "/auth/signup" , {
         method: "post",
         headers,
         body: JSON.stringify(user)
@@ -22,7 +22,7 @@ export const signupAction = async ({request}) => {
         return redirect("/signup")
     }
 
-    redirect('/login')
+    return redirect('/login')
 
 }
 
@@ -34,7 +34,7 @@ export const loginAction = async ({request}) => {
         password: formData.get("password")
     }
 
-    await fetch(url + "/auth/login" , {
+    const response = await fetch(url + "/auth/login" , {
         method: "post",
         headers,
         body: JSON.stringify(user)
@@ -46,5 +46,23 @@ export const loginAction = async ({request}) => {
         return redirect("/login")
     }
 
-    redirect('/dashboard')
+    return redirect('/dashboard')
+}
+
+
+export const logoutAction = async () => {
+    
+
+    const response = await fetch(url + "/auth/logout" , {
+        method: "post",
+        
+    })
+
+
+    if (response.status === 400) {
+        alert("failed logout")
+        return redirect("/dashboard")
+    }
+
+    return redirect('/')
 }
