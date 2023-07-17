@@ -5,7 +5,7 @@ export default function Login(){
     <Form action="/login" method="post"> 
         <input type="text" name="username" placeholder="username"/>
         <input type="password" name="password" placeholder="password"/>
-        <button>Loginr</button>
+        <button>Login</button>
     </Form>
     );
   }

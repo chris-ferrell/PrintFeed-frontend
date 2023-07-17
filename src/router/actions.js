@@ -37,6 +37,7 @@ export const loginAction = async ({request}) => {
     const response = await fetch(url + "/auth/login" , {
         method: "post",
         headers,
+        credentials: "include",
         body: JSON.stringify(user)
     })
 
