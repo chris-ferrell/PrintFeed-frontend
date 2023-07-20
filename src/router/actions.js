@@ -67,3 +67,72 @@ export const logoutAction = async () => {
 
     return redirect('/')
 }
+
+export const createAction = async ({request}) => {
+    console.log("create action")
+    const formData = await request.formData()
+    
+    const tweet = {
+        content: formData.get("content"),
+        // message: formData.get("message")
+    }
+
+    const response = await fetch(url + "/tweet" , {
+        method: "post",
+        headers,
+        credentials: "include",
+        body: JSON.stringify(tweet)
+    })
+
+
+    if (response.status === 400) {
+        alert("failed to post tweet")
+        return redirect("/dashboard")
+    }
+
+    return redirect('/dashboard')
+}
+
+export const updateAction = async ({request, params}) => {
+    const id = params.id 
+    const formData = await request.formData()
+    
+    const tweet = {
+        content: formData.get("content"),
+        // message: formData.get("message")
+    }
+
+    const response = await fetch(url + `/tweet/${id}` , {
+        method: "put",
+        headers,
+        credentials: "include",
+        body: JSON.stringify(tweet)
+    })
+
+
+    if (response.status === 400) {
+        alert("failed update")
+        return redirect("/dashboard")
+    }
+
+    return redirect('/dashboard')
+}
+
+export const deleteAction = async ({params}) => {
+    const id = params.id 
+
+    
+  
+    const response = await fetch(url + `/tweet/${id}` , {
+        method: "delete",
+        credentials: "include",
+    })
+
+
+    if (response.status === 400) {
+        alert("failed update")
+        return redirect("/dashboard")
+    }
+
+    return redirect('/dashboard')
+}
