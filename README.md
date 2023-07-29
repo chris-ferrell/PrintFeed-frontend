@@ -10,7 +10,7 @@ Printfeed is a twitter recreation
 **1:** User will be able create account.<br>
 **2:** User will be able to create a post.<br>
 **3:** User will only be able to update post they create.<br>
-**4:** User will be able to like post made by other users.
+**4:** User will be able delete a post.
 
 ## Stretch
 **1:** User will be able to comment on other users post.<br>
@@ -18,7 +18,7 @@ Printfeed is a twitter recreation
 **3:** User will be able to follow other users.<br>
 **4:** User will be able to reset account password.<br>
 
-
+![Alt text](https://i.imgur.com/VnDrIix.png)
 
 ## License
 
